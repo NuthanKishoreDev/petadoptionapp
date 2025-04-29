@@ -11,7 +11,8 @@ export default function AnimalDetails({ animalId }) {
       
       try {
         setLoading(true);
-        const response = await fetch(`/animals/${animalId}`);
+        const baseUrl = process.env.NODE_ENV === 'production' ? '/pet-adoption-app' : '';
+        const response = await fetch(`${baseUrl}/animals/${animalId}`);
         if (!response.ok) {
           throw new Error('Animal not found');
         }
@@ -34,7 +35,10 @@ export default function AnimalDetails({ animalId }) {
   return (
     <div className="animal-details">
       <h2>{animal.name}</h2>
-      <img src={animal.photos.medium} alt={animal.name} />
+      <img 
+  src={animal?.photos?.medium || '/placeholder-image.jpg'} 
+  alt={animal?.name || 'Animal'} 
+/>
       <p><strong>Type:</strong> {animal.type}</p>
       <p><strong>Breed:</strong> {animal.breeds.primary}</p>
       <p><strong>Age:</strong> {animal.age}</p>

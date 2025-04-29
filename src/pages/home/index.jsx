@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPets } from '../../api/petfinder';
 import Hero from '../../components/hero';
 import { useParams,Link } from 'react-router-dom'; // Import useParams
+import '../../App.css';
 
 // import useParams
 // import Link

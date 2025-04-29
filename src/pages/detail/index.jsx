@@ -3,8 +3,6 @@ import { getPetDetails } from '../../api/petfinder';
 import Hero from '../../components/hero';
 import { useParams, Link, Navigate } from 'react-router-dom'; // Import useParams and Link
 
-import '../../App.css'
-
 
 // Import useParams
 // Import Navigate

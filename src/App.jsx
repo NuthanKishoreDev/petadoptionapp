@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import './App.css'
-import Animals from './components/testcomponents/Animals'
 import Root from './components/root'
 import SearchPage from './pages/search';
 import PetDetailsPage from './pages/detail';
@@ -20,11 +18,11 @@ function App() {
         <Route path="search" element={<SearchPage/>}/>
         <Route path="pet-details-not-found" element={<PetDetailsNotFound/>}/>
       </Route>
-    ),
-    {
-      basename: '/pet-adoption-app'
-    }
+    )
   )
+  {
+    basename: process.env.NODE_ENV === 'production' ? '/pet-adoption-app' : '/'
+  }
 
   return (
     <RouterProvider router={appRouter}/>
